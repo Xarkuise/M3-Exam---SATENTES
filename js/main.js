@@ -54,16 +54,13 @@ const pillarTexture = new THREE.TextureLoader().load('Assets/Texture/pillar.jpg'
 const stageTexture = new THREE.TextureLoader().load('Assets/Texture/stage.jpg');
   
 // Add lights
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.3);
 directionalLight.position.set(1, 1, 1).normalize(); // Normalize directional light position
 scene.add(directionalLight);
-
-const pointLight = new THREE.PointLight(0xffffff, 0.8);
-pointLight.position.set(0, 3, 0);
-scene.add(pointLight);
 
 // Create and add a light source within the lamp model
 const lampLight = new THREE.PointLight(0xffffff, 1.5, 100); // Adjust light parameters as needed
