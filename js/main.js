@@ -49,6 +49,7 @@ function particles() {
 // Create textures
 const floorTexture = new THREE.TextureLoader().load('Assets/Texture/floor.jpg');
 const wallTexture = new THREE.TextureLoader().load('Assets/Texture/floor.jpg');
+const doorTexture = new THREE.TextureLoader().load('Assets/Texture/Wall-Door.png');
 const pillarTexture = new THREE.TextureLoader().load('Assets/Texture/pillar.jpg');
 const stageTexture = new THREE.TextureLoader().load('Assets/Texture/stage.jpg');
   
@@ -112,6 +113,21 @@ const middleWallGeometry = new THREE.BoxGeometry(3000, 800, 90);
 const middleWallMesh = new THREE.Mesh(middleWallGeometry, wallMaterial);
 middleWallMesh.position.set(0, 374, 445);
 scene.add(middleWallMesh);
+
+//Window Like Door
+const doorGeometry = new THREE.BoxGeometry(80, 40, 20);
+const doorMaterial = new THREE.MeshStandardMaterial({ map: doorTexture });
+const doorMesh = new THREE.Mesh(doorGeometry, doorMaterial);
+doorMesh.position.set(270, 84, 409);
+scene.add(doorMesh);
+
+//Mini Stage
+const miniStageGeometry = new THREE.BoxGeometry(90, 40, 10);
+const miniStageMaterial = new THREE.MeshStandardMaterial({ map: floorTexture });
+const miniStageMesh = new THREE.Mesh(miniStageGeometry, miniStageMaterial);
+miniStageMesh.rotation.x = -Math.PI / 2; // Rotate to lay flat
+miniStageMesh.position.set(270, 24, 380);
+scene.add(miniStageMesh);
 
 //First Pillar
 const firstPillargeometry = new THREE.CylinderGeometry(120, 50, 778, 3, undefined, false, .8, 4.8003535746852); 
